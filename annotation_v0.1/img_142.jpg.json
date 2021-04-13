@@ -1,0 +1,150 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651599944,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T13:56:58.211Z",
+            "updatedAt": "2021-04-10T10:46:56.126Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        977,
+                        714
+                    ],
+                    [
+                        962,
+                        635
+                    ],
+                    [
+                        996,
+                        583
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651599947,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T13:57:03.196Z",
+            "updatedAt": "2021-04-10T10:46:56.126Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        999,
+                        479
+                    ],
+                    [
+                        747,
+                        472
+                    ],
+                    [
+                        615,
+                        461
+                    ],
+                    [
+                        511,
+                        447
+                    ],
+                    [
+                        483,
+                        435
+                    ],
+                    [
+                        485,
+                        426
+                    ],
+                    [
+                        512,
+                        422
+                    ],
+                    [
+                        541,
+                        420
+                    ],
+                    [
+                        659,
+                        422
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605382,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:17:19.061Z",
+            "updatedAt": "2021-04-10T10:46:56.126Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        618
+                    ],
+                    [
+                        298,
+                        472
+                    ],
+                    [
+                        365,
+                        434
+                    ],
+                    [
+                        379,
+                        428
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651684602,
+            "classId": 2877197,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-10T10:46:56.043Z",
+            "updatedAt": "2021-04-10T10:46:59.898Z",
+            "tags": [],
+            "classTitle": "outer_t",
+            "points": {
+                "exterior": [
+                    [
+                        366,
+                        411
+                    ],
+                    [
+                        515,
+                        413
+                    ],
+                    [
+                        658,
+                        414
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651604879,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:03:58.938Z",
+            "updatedAt": "2021-04-10T10:43:27.733Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        998,
+                        475
+                    ],
+                    [
+                        717,
+                        464
+                    ],
+                    [
+                        601,
+                        453
+                    ],
+                    [
+                        557,
+                        440
+                    ],
+                    [
+                        519,
+                        417
+                    ],
+                    [
+                        498,
+                        407
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651684328,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-10T10:43:27.652Z",
+            "updatedAt": "2021-04-10T10:43:31.329Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        239,
+                        716
+                    ],
+                    [
+                        445,
+                        410
+                    ],
+                    [
+                        479,
+                        403
+                    ],
+                    [
+                        506,
+                        403
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651599540,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T13:53:37.209Z",
+            "updatedAt": "2021-04-09T15:14:41.768Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        540,
+                        714
+                    ],
+                    [
+                        401,
+                        404
+                    ],
+                    [
+                        383,
+                        397
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605218,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:14:41.690Z",
+            "updatedAt": "2021-04-09T15:14:45.179Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        5,
+                        551
+                    ],
+                    [
+                        284,
+                        428
+                    ],
+                    [
+                        252,
+                        416
+                    ],
+                    [
+                        226,
+                        416
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605221,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:14:44.217Z",
+            "updatedAt": "2021-04-09T15:14:44.217Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        286,
+                        407
+                    ],
+                    [
+                        315,
+                        407
+                    ],
+                    [
+                        337,
+                        403
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}
