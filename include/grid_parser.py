@@ -1,35 +1,35 @@
 #!/usr/bin/env python3
+# VERSION 2
 
 import numpy as np
 import cv2
 def foo(l, dtype=int):
     return list(map(dtype, l))
 
-def segmented_image_into_grid_space(image, image_y_range=None, grid_size = (10, 36)):
-    '''
-    w = grid_size[1] + 1 which is number of row anchors
-    the plus one is the class for lane not on image
-    '''
-    if image_y_range == None:
-        image_y_range = (0, image.shape[0])
+def segmented_image_into_grid_space(image, grid_size = (10, 36), window_size_x=10):
     w = grid_size[1]+1
-    window_size = np.int((image_y_range[1]-image_y_range[0])/grid_size[0])
-    window_start = image_y_range[0]
+    window_size_y = int(image.shape[0]/grid_size[0])
     grid_data = []
     for channel_index in range(image.shape[2]):
         channel_image = image[:,:,channel_index]
-        grid_lane_x = np.full(grid_size[0], int(w))
+        y_data = []
         for y_window in range(grid_size[0]):
-            window_y = window_start + window_size * y_window - np.int(window_size/2)
-            non_zero = np.nonzero(channel_image[window_y:window_y+window_size,:])
-            if len(non_zero[1]) == 0:
-                x = grid_size[1]
-            else:
-                mean_x = np.int(np.mean(non_zero[1]))
-                x = mean_x/image.shape[1]*grid_size[1]
-            grid_lane_x[y_window] = int(x)
-        grid_data.append(foo(list(grid_lane_x)))
-    return grid_data
+            window_y = window_size_y * y_window
+            x_row = np.zeros(w)
+            for x_window in range(int(image.shape[1]/window_size_x)):
+                    window_x = window_size_x * x_window
+                    non_zero = np.nonzero(channel_image[window_y:window_y+window_size_y, window_x:window_x+window_size_x])
+                    # if all values are zero, there is no line
+                    if len(non_zero[1]) > 0:
+                        mean_x = np.int(np.mean(non_zero[1])) + window_x
+                        x = int(mean_x/image.shape[1]*grid_size[1])
+                        x_row[x] = 1.0
+            if len(np.nonzero(x_row)) == 0:
+                x_row[w-1] = 1.0
+            y_data.append(x_row)
+        grid_data.append(y_data) 
+       # grid_data.append(foo(list(grid_lane_x)))
+    return np.array(grid_data)
 
 def linear_points_into_grid_space(points, grid_size = (10, 36)):
     return None
