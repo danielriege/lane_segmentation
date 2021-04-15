@@ -21,7 +21,7 @@ def getPoints(annotation_path):
         lanes[class_name] = lane_points
     return lanes
 
-def drawLanes(img, lanes):
+def drawDebugImage(img, lanes):
     img = np.zeros_like(img)
     for class_title in lanes:
         if "outer" in class_title:
@@ -29,5 +29,22 @@ def drawLanes(img, lanes):
         else:
             color = (0,1.0,0.0)
         pts = np.asarray(lanes[class_title], np.int32)
-        img = cv2.polylines(img, [pts], False, color,1)
+        img = cv2.polylines(img, [pts], False, color,5)
     return img
+
+def drawLanes(blank, lanes):
+    data = np.zeros_like(blank)
+    for class_title in lanes:
+        if "outer_l" in class_title:
+            i = 0
+        elif "outer_t" in class_title:
+            i = 1
+        elif "outer_r" in class_title:
+            i = 2
+        elif "middle_curb" in class_title:
+            i = 3
+        else:
+            return None
+        pts = np.asarray(lanes[class_title], np.int32)
+        data[i] = cv2.polylines(data[i], [pts], False, 1.0,1)
+    return data
