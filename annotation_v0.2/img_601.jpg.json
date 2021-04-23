@@ -1,0 +1,78 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 687072160,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-21T14:31:53.779Z",
+            "updatedAt": "2021-04-22T08:10:06.081Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        246,
+                        713
+                    ],
+                    [
+                        476,
+                        591
+                    ],
+                    [
+                        551,
+                        524
+                    ],
+                    [
+                        552,
+                        489
+                    ],
+                    [
+                        525,
+                        468
+                    ],
+                    [
+                        472,
+                        451
+                    ],
+                    [
+                        418,
+                        447
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 687496505,
+            "classId": 2877197,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-22T08:10:06.007Z",
+            "updatedAt": "2021-04-22T08:10:06.007Z",
+            "tags": [],
+            "classTitle": "outer_t",
+            "points": {
+                "exterior": [
+                    [
+                        428,
+                        434
+                    ],
+                    [
+                        1001,
+                        462
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

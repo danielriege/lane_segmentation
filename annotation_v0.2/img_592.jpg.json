@@ -1,0 +1,78 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 687072091,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-21T14:31:06.394Z",
+            "updatedAt": "2021-04-22T07:38:12.225Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        3,
+                        606
+                    ],
+                    [
+                        332,
+                        453
+                    ],
+                    [
+                        382,
+                        427
+                    ],
+                    [
+                        426,
+                        420
+                    ],
+                    [
+                        460,
+                        418
+                    ],
+                    [
+                        513,
+                        415
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 687489845,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-22T07:38:12.151Z",
+            "updatedAt": "2021-04-22T07:38:12.151Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        654,
+                        715
+                    ],
+                    [
+                        484,
+                        433
+                    ],
+                    [
+                        489,
+                        427
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

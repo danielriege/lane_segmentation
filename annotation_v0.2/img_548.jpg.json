@@ -1,0 +1,78 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 687071462,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-21T14:25:04.072Z",
+            "updatedAt": "2021-04-22T07:31:02.243Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        247,
+                        714
+                    ],
+                    [
+                        426,
+                        443
+                    ],
+                    [
+                        461,
+                        428
+                    ],
+                    [
+                        545,
+                        422
+                    ],
+                    [
+                        608,
+                        418
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 687488695,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-22T07:31:02.163Z",
+            "updatedAt": "2021-04-22T07:31:05.771Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        998,
+                        671
+                    ],
+                    [
+                        567,
+                        449
+                    ],
+                    [
+                        551,
+                        443
+                    ],
+                    [
+                        554,
+                        435
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

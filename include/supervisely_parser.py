@@ -32,8 +32,8 @@ def drawDebugImage(img, lanes):
         img = cv2.polylines(img, [pts], False, color,5)
     return img
 
-def drawLanes(blank, lanes):
-    data = np.zeros_like(blank)
+def drawLanes(size, lanes):
+    data = [np.zeros(size) for i in range(4)]
     for class_title in lanes:
         if "outer_l" in class_title:
             i = 0
@@ -46,5 +46,7 @@ def drawLanes(blank, lanes):
         else:
             return None
         pts = np.asarray(lanes[class_title], np.int32)
-        data[i] = cv2.polylines(data[i], [pts], False, 1.0,1)
+        data[i] = cv2.polylines(data[i], [pts], False, 1.0,10)
+    background = np.ones(size) - data[0] - data[1] - data [2] - data[3]
+    data.append(background)
     return data

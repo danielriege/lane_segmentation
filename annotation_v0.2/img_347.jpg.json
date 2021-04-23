@@ -1,0 +1,78 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651604753,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:02:33.580Z",
+            "updatedAt": "2021-04-10T10:42:28.251Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        813,
+                        716
+                    ],
+                    [
+                        583,
+                        437
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651684168,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-10T10:42:28.147Z",
+            "updatedAt": "2021-04-10T10:42:31.440Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        2,
+                        456
+                    ],
+                    [
+                        95,
+                        458
+                    ],
+                    [
+                        195,
+                        457
+                    ],
+                    [
+                        281,
+                        452
+                    ],
+                    [
+                        368,
+                        448
+                    ],
+                    [
+                        423,
+                        443
+                    ],
+                    [
+                        432,
+                        435
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651604497,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T14:58:17.339Z",
+            "updatedAt": "2021-04-10T10:38:04.170Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        714,
+                        717
+                    ],
+                    [
+                        575,
+                        587
+                    ],
+                    [
+                        526,
+                        499
+                    ],
+                    [
+                        486,
+                        423
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651675844,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-10T10:38:04.111Z",
+            "updatedAt": "2021-04-10T10:38:07.697Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        608
+                    ],
+                    [
+                        201,
+                        516
+                    ],
+                    [
+                        322,
+                        454
+                    ],
+                    [
+                        398,
+                        421
+                    ],
+                    [
+                        440,
+                        413
+                    ],
+                    [
+                        493,
+                        409
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}
