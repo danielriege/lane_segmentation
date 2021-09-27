@@ -2,8 +2,8 @@
 from tensorflow.keras.preprocessing.image import load_img
 import numpy as np
 from tensorflow.python.keras.utils.data_utils import Sequence
-import include.supervisely_parser as svp
-import include.grid_parser as gp
+import supervisely_parser as svp
+import grid_parser as gp
 import cv2
 import os
 import fnmatch
