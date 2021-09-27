@@ -1,0 +1,466 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 480,
+        "width": 640
+    },
+    "objects": [
+        {
+            "id": 807347675,
+            "classId": 2877197,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:43:36.595Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "outer_t",
+            "points": {
+                "exterior": [
+                    [
+                        1,
+                        287
+                    ],
+                    [
+                        50,
+                        289
+                    ],
+                    [
+                        127,
+                        295
+                    ],
+                    [
+                        249,
+                        301
+                    ],
+                    [
+                        405,
+                        303
+                    ],
+                    [
+                        488,
+                        302
+                    ],
+                    [
+                        512,
+                        298
+                    ],
+                    [
+                        582,
+                        296
+                    ],
+                    [
+                        638,
+                        298
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347716,
+            "classId": 4867191,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:03.759Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "hold_line",
+            "points": {
+                "exterior": [
+                    [
+                        509,
+                        300
+                    ],
+                    [
+                        538,
+                        308
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347719,
+            "classId": 4867191,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:08.274Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "hold_line",
+            "points": {
+                "exterior": [
+                    [
+                        553,
+                        312
+                    ],
+                    [
+                        601,
+                        325
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347721,
+            "classId": 2907083,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:10.358Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "solid_lane",
+            "points": {
+                "exterior": [
+                    [
+                        611,
+                        326
+                    ],
+                    [
+                        629,
+                        322
+                    ],
+                    [
+                        639,
+                        319
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347763,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:14.856Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        532,
+                        313
+                    ],
+                    [
+                        565,
+                        322
+                    ],
+                    [
+                        602,
+                        333
+                    ],
+                    [
+                        639,
+                        344
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347765,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:17.170Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        628,
+                        330
+                    ],
+                    [
+                        639,
+                        334
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347766,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:18.824Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        431,
+                        351
+                    ],
+                    [
+                        498,
+                        345
+                    ],
+                    [
+                        553,
+                        338
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347768,
+            "classId": 2907083,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:22.558Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "solid_lane",
+            "points": {
+                "exterior": [
+                    [
+                        631,
+                        398
+                    ],
+                    [
+                        639,
+                        368
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347770,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:27.621Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        66,
+                        305
+                    ],
+                    [
+                        76,
+                        306
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347771,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:29.872Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        170,
+                        314
+                    ],
+                    [
+                        183,
+                        314
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347773,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:33.007Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        30,
+                        306
+                    ],
+                    [
+                        48,
+                        312
+                    ],
+                    [
+                        72,
+                        317
+                    ],
+                    [
+                        111,
+                        325
+                    ],
+                    [
+                        149,
+                        333
+                    ],
+                    [
+                        192,
+                        339
+                    ],
+                    [
+                        257,
+                        346
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347780,
+            "classId": 4867195,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:46.769Z",
+            "updatedAt": "2021-09-22T10:44:59.269Z",
+            "tags": [],
+            "classTitle": "middle_curb_area",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        337
+                    ],
+                    [
+                        20,
+                        350
+                    ],
+                    [
+                        54,
+                        367
+                    ],
+                    [
+                        95,
+                        385
+                    ],
+                    [
+                        143,
+                        402
+                    ],
+                    [
+                        181,
+                        412
+                    ],
+                    [
+                        176,
+                        422
+                    ],
+                    [
+                        105,
+                        447
+                    ],
+                    [
+                        17,
+                        466
+                    ],
+                    [
+                        0,
+                        470
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807347821,
+            "classId": 4867195,
+            "description": "",
+            "geometryType": "polygon",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-22T10:44:59.207Z",
+            "updatedAt": "2021-09-22T10:45:13.005Z",
+            "tags": [],
+            "classTitle": "middle_curb_area",
+            "points": {
+                "exterior": [
+                    [
+                        203,
+                        315
+                    ],
+                    [
+                        247,
+                        317
+                    ],
+                    [
+                        388,
+                        319
+                    ],
+                    [
+                        448,
+                        316
+                    ],
+                    [
+                        499,
+                        313
+                    ],
+                    [
+                        529,
+                        312
+                    ],
+                    [
+                        533,
+                        317
+                    ],
+                    [
+                        517,
+                        320
+                    ],
+                    [
+                        482,
+                        329
+                    ],
+                    [
+                        464,
+                        335
+                    ],
+                    [
+                        410,
+                        352
+                    ],
+                    [
+                        373,
+                        353
+                    ],
+                    [
+                        284,
+                        351
+                    ],
+                    [
+                        237,
+                        332
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

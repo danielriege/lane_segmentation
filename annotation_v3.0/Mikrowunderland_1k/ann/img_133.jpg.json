@@ -1,0 +1,82 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651605343,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:16:08.275Z",
+            "updatedAt": "2021-04-27T09:09:48.075Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        252,
+                        715
+                    ],
+                    [
+                        591,
+                        547
+                    ],
+                    [
+                        767,
+                        472
+                    ],
+                    [
+                        854,
+                        441
+                    ],
+                    [
+                        892,
+                        436
+                    ],
+                    [
+                        982,
+                        437
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698056265,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:09:48.002Z",
+            "updatedAt": "2021-04-27T09:09:51.909Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        814,
+                        710
+                    ],
+                    [
+                        922,
+                        449
+                    ],
+                    [
+                        944,
+                        445
+                    ],
+                    [
+                        980,
+                        443
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "classes": [
+        {
+            "id": 2876689,
+            "title": "outer_r",
+            "shape": "line",
+            "hotkey": "R",
+            "color": "#FF0000"
+        },
+        {
+            "id": 2877197,
+            "title": "outer_t",
+            "shape": "line",
+            "hotkey": "T",
+            "color": "#AC0000"
+        },
+        {
+            "id": 2876710,
+            "title": "outer_l",
+            "shape": "line",
+            "hotkey": "L",
+            "color": "#FD6767"
+        },
+        {
+            "id": 4867191,
+            "title": "hold_line",
+            "shape": "line",
+            "hotkey": "H",
+            "color": "#0024FF"
+        },
+        {
+            "id": 4867232,
+            "title": "zebra",
+            "shape": "polygon",
+            "hotkey": "Z",
+            "color": "#66ACFF"
+        },
+        {
+            "id": 2907083,
+            "title": "solid_lane",
+            "shape": "line",
+            "hotkey": "S",
+            "color": "#FFEB00"
+        },
+        {
+            "id": 2907069,
+            "title": "guide_lane",
+            "shape": "line",
+            "hotkey": "G",
+            "color": "#335F00"
+        },
+        {
+            "id": 4867195,
+            "title": "middle_curb_area",
+            "shape": "polygon",
+            "hotkey": "M",
+            "color": "#FF9F00"
+        }
+    ],
+    "tags": [
+        {
+            "id": 29104957,
+            "name": "island",
+            "color": "#43A373",
+            "value_type": "none",
+            "hotkey": "",
+            "applicable_type": "imagesOnly",
+            "classes": []
+        },
+        {
+            "id": 29868496,
+            "name": "unsafe",
+            "color": "#B333D7",
+            "value_type": "none",
+            "hotkey": "",
+            "applicable_type": "imagesOnly",
+            "classes": []
+        }
+    ],
+    "projectType": "images"
+}

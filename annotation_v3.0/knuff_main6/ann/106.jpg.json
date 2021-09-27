@@ -1,0 +1,302 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 480,
+        "width": 640
+    },
+    "objects": [
+        {
+            "id": 807225412,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-21T14:35:07.984Z",
+            "updatedAt": "2021-09-21T14:43:24.472Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        639,
+                        436
+                    ],
+                    [
+                        617,
+                        438
+                    ],
+                    [
+                        590,
+                        439
+                    ],
+                    [
+                        518,
+                        421
+                    ],
+                    [
+                        478,
+                        408
+                    ],
+                    [
+                        439,
+                        389
+                    ],
+                    [
+                        407,
+                        369
+                    ],
+                    [
+                        369,
+                        341
+                    ],
+                    [
+                        342,
+                        321
+                    ],
+                    [
+                        336,
+                        314
+                    ],
+                    [
+                        331,
+                        307
+                    ],
+                    [
+                        323,
+                        295
+                    ],
+                    [
+                        323,
+                        289
+                    ],
+                    [
+                        325,
+                        285
+                    ],
+                    [
+                        325,
+                        276
+                    ],
+                    [
+                        324,
+                        272
+                    ],
+                    [
+                        321,
+                        269
+                    ],
+                    [
+                        314,
+                        265
+                    ],
+                    [
+                        307,
+                        262
+                    ],
+                    [
+                        307,
+                        259
+                    ],
+                    [
+                        296,
+                        258
+                    ],
+                    [
+                        292,
+                        258
+                    ],
+                    [
+                        291,
+                        257
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807225761,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-21T14:42:17.383Z",
+            "updatedAt": "2021-09-21T14:43:24.472Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        321
+                    ],
+                    [
+                        19,
+                        314
+                    ],
+                    [
+                        53,
+                        305
+                    ],
+                    [
+                        84,
+                        296
+                    ],
+                    [
+                        120,
+                        288
+                    ],
+                    [
+                        152,
+                        282
+                    ],
+                    [
+                        180,
+                        277
+                    ],
+                    [
+                        210,
+                        273
+                    ],
+                    [
+                        237,
+                        269
+                    ],
+                    [
+                        251,
+                        267
+                    ],
+                    [
+                        263,
+                        264
+                    ],
+                    [
+                        272,
+                        261
+                    ],
+                    [
+                        278,
+                        258
+                    ],
+                    [
+                        281,
+                        255
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807225800,
+            "classId": 4867191,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-21T14:43:04.965Z",
+            "updatedAt": "2021-09-21T14:43:24.472Z",
+            "tags": [],
+            "classTitle": "hold_line",
+            "points": {
+                "exterior": [
+                    [
+                        1,
+                        471
+                    ],
+                    [
+                        18,
+                        479
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807225802,
+            "classId": 2907083,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-21T14:43:07.723Z",
+            "updatedAt": "2021-09-21T14:43:24.472Z",
+            "tags": [],
+            "classTitle": "solid_lane",
+            "points": {
+                "exterior": [
+                    [
+                        114,
+                        480
+                    ],
+                    [
+                        132,
+                        429
+                    ],
+                    [
+                        143,
+                        399
+                    ],
+                    [
+                        167,
+                        361
+                    ],
+                    [
+                        191,
+                        329
+                    ],
+                    [
+                        222,
+                        306
+                    ],
+                    [
+                        252,
+                        290
+                    ],
+                    [
+                        274,
+                        280
+                    ],
+                    [
+                        295,
+                        271
+                    ],
+                    [
+                        296,
+                        268
+                    ],
+                    [
+                        290,
+                        264
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 807225810,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-21T14:43:24.426Z",
+            "updatedAt": "2021-09-21T14:43:24.426Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        175,
+                        291
+                    ],
+                    [
+                        195,
+                        285
+                    ],
+                    [
+                        210,
+                        282
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

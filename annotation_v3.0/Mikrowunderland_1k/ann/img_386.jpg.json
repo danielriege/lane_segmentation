@@ -1,0 +1,106 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651604956,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:06:27.930Z",
+            "updatedAt": "2021-04-27T09:51:37.065Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        649,
+                        714
+                    ],
+                    [
+                        518,
+                        492
+                    ],
+                    [
+                        486,
+                        438
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605078,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:10:26.277Z",
+            "updatedAt": "2021-04-27T09:51:37.065Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        4,
+                        613
+                    ],
+                    [
+                        377,
+                        433
+                    ],
+                    [
+                        438,
+                        421
+                    ],
+                    [
+                        493,
+                        420
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698667165,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:51:36.994Z",
+            "updatedAt": "2021-04-27T09:51:40.642Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        234,
+                        713
+                    ],
+                    [
+                        409,
+                        462
+                    ],
+                    [
+                        428,
+                        435
+                    ],
+                    [
+                        448,
+                        429
+                    ],
+                    [
+                        474,
+                        425
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

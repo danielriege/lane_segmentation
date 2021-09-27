@@ -1,0 +1,318 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 480,
+        "width": 640
+    },
+    "objects": [
+        {
+            "id": 804636186,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:23:47.074Z",
+            "updatedAt": "2021-09-16T11:25:02.057Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        639,
+                        358
+                    ],
+                    [
+                        589,
+                        341
+                    ],
+                    [
+                        546,
+                        327
+                    ],
+                    [
+                        501,
+                        311
+                    ],
+                    [
+                        443,
+                        291
+                    ],
+                    [
+                        391,
+                        271
+                    ],
+                    [
+                        362,
+                        260
+                    ],
+                    [
+                        345,
+                        254
+                    ],
+                    [
+                        322,
+                        245
+                    ],
+                    [
+                        309,
+                        240
+                    ],
+                    [
+                        297,
+                        235
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636213,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:08.605Z",
+            "updatedAt": "2021-09-16T11:25:02.057Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        273
+                    ],
+                    [
+                        19,
+                        268
+                    ],
+                    [
+                        52,
+                        262
+                    ],
+                    [
+                        82,
+                        256
+                    ],
+                    [
+                        116,
+                        251
+                    ],
+                    [
+                        153,
+                        244
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636239,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:14.758Z",
+            "updatedAt": "2021-09-16T11:25:02.057Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        1,
+                        283
+                    ],
+                    [
+                        29,
+                        276
+                    ],
+                    [
+                        66,
+                        267
+                    ],
+                    [
+                        99,
+                        260
+                    ],
+                    [
+                        137,
+                        253
+                    ],
+                    [
+                        153,
+                        250
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636241,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:22.162Z",
+            "updatedAt": "2021-09-16T11:25:02.057Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        4,
+                        306
+                    ],
+                    [
+                        43,
+                        293
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636242,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:26.500Z",
+            "updatedAt": "2021-09-16T11:25:02.057Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        0,
+                        446
+                    ],
+                    [
+                        46,
+                        404
+                    ],
+                    [
+                        100,
+                        359
+                    ],
+                    [
+                        145,
+                        323
+                    ],
+                    [
+                        191,
+                        287
+                    ],
+                    [
+                        220,
+                        265
+                    ],
+                    [
+                        242,
+                        249
+                    ],
+                    [
+                        261,
+                        236
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636248,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:39.705Z",
+            "updatedAt": "2021-09-16T11:32:31.435Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        290,
+                        479
+                    ],
+                    [
+                        277,
+                        290
+                    ],
+                    [
+                        275,
+                        255
+                    ],
+                    [
+                        275,
+                        240
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636276,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:24:53.662Z",
+            "updatedAt": "2021-09-16T11:25:01.558Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        640,
+                        459
+                    ],
+                    [
+                        516,
+                        384
+                    ],
+                    [
+                        428,
+                        327
+                    ],
+                    [
+                        355,
+                        280
+                    ],
+                    [
+                        320,
+                        257
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 804636301,
+            "classId": 2907083,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-09-16T11:25:02.013Z",
+            "updatedAt": "2021-09-16T11:25:06.645Z",
+            "tags": [],
+            "classTitle": "solid_lane",
+            "points": {
+                "exterior": [
+                    [
+                        319,
+                        256
+                    ],
+                    [
+                        298,
+                        242
+                    ],
+                    [
+                        293,
+                        239
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}
