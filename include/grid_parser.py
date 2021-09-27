@@ -14,7 +14,7 @@ def segmented_image_into_grid_space(image, grid_size = (10, 36), window_size_x=1
         y_data = []
         for y_window in range(grid_size[0]):
             window_y = window_size_y * y_window
-            x_row = np.zeros(grid_size[1])
+            x_row = np.zeros(grid_size[1]) ############################### + 1
             for x_window in range(int(image.shape[2]/window_size_x)):
                 window_x = window_size_x * x_window
                 non_zero = np.nonzero(channel_image[window_y:window_y+window_size_y, window_x:window_x+window_size_x])
@@ -23,6 +23,8 @@ def segmented_image_into_grid_space(image, grid_size = (10, 36), window_size_x=1
                     mean_x = np.int(np.mean(non_zero[1])) + window_x
                     x = int(mean_x/image.shape[2]*grid_size[1])
                     x_row[x] = 1.0
+           # if len(np.nonzero(x_row)[0]) == 0: ###################S
+             #   x_row[grid_size[1]] = 1.0
             y_data.append(x_row)
         grid_data.append(y_data) 
        # grid_data.append(foo(list(grid_lane_x)))

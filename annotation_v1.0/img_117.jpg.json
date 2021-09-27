@@ -1,0 +1,146 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651599550,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T13:53:50.117Z",
+            "updatedAt": "2021-04-27T09:05:56.068Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        217,
+                        714
+                    ],
+                    [
+                        189,
+                        408
+                    ],
+                    [
+                        180,
+                        400
+                    ],
+                    [
+                        161,
+                        396
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605242,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:14:53.846Z",
+            "updatedAt": "2021-04-27T09:05:56.068Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        6,
+                        450
+                    ],
+                    [
+                        60,
+                        425
+                    ],
+                    [
+                        17,
+                        425
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 651605243,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:14:55.872Z",
+            "updatedAt": "2021-04-27T09:05:56.068Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        101,
+                        409
+                    ],
+                    [
+                        110,
+                        403
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698056031,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:05:56.007Z",
+            "updatedAt": "2021-04-27T09:05:56.007Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        9,
+                        516
+                    ],
+                    [
+                        156,
+                        406
+                    ],
+                    [
+                        144,
+                        397
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698056034,
+            "classId": 2907071,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:05:58.349Z",
+            "updatedAt": "2021-04-27T09:05:58.349Z",
+            "tags": [],
+            "classTitle": "wait_line",
+            "points": {
+                "exterior": [
+                    [
+                        65,
+                        422
+                    ],
+                    [
+                        99,
+                        410
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

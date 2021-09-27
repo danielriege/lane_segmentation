@@ -33,7 +33,7 @@ def drawDebugImage(img, lanes):
     return img
 
 def drawLanes(size, lanes):
-    data = [np.zeros(size) for i in range(4)]
+    data = [np.zeros(size) for i in range(8)]
     for class_title in lanes:
         if "outer_l" in class_title:
             i = 0
@@ -43,10 +43,31 @@ def drawLanes(size, lanes):
             i = 2
         elif "middle_curb" in class_title:
             i = 3
+        elif "guide_lane" in class_title:
+            i = 4
+        elif "solid_lane" in class_title:
+            i = 5
+        elif "hold_line" in class_title:
+            i = 6
+        elif "zebra" in class_title:
+            i = 7
         else:
             return None
         pts = np.asarray(lanes[class_title], np.int32)
-        data[i] = cv2.polylines(data[i], [pts], False, 1.0,10)
-    background = np.ones(size) - data[0] - data[1] - data [2] - data[3]
+        if "area" in class_title:
+            data[i] = cv2.fillPoly(data[i], [pts], 1.0)
+        else:
+            thick = 2
+            if "hold" in class_title:
+                thick = 8
+            data[i] = cv2.polylines(data[i], [pts], False, 1.0,thick)
+    background = cv2.absdiff(np.ones(size), data[0])
+    background = cv2.absdiff(background, data[1])
+    background = cv2.absdiff(background, data[2])
+    background = cv2.absdiff(background, data[3])
+    background = cv2.absdiff(background, data[4])
+    background = cv2.absdiff(background, data[5])
+    background = cv2.absdiff(background, data[6])
+    background = cv2.absdiff(background, data[7])
     data.append(background)
     return data

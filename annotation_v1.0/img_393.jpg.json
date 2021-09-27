@@ -1,0 +1,90 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 651605107,
+            "classId": 2876710,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-09T15:11:04.690Z",
+            "updatedAt": "2021-04-27T09:52:21.714Z",
+            "tags": [],
+            "classTitle": "outer_l",
+            "points": {
+                "exterior": [
+                    [
+                        595,
+                        491
+                    ],
+                    [
+                        516,
+                        532
+                    ],
+                    [
+                        176,
+                        578
+                    ],
+                    [
+                        6,
+                        583
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698772064,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:52:21.642Z",
+            "updatedAt": "2021-04-27T09:52:21.642Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        751,
+                        527
+                    ],
+                    [
+                        908,
+                        712
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 698777185,
+            "classId": 2907071,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:52:23.884Z",
+            "updatedAt": "2021-04-27T09:52:23.884Z",
+            "tags": [],
+            "classTitle": "wait_line",
+            "points": {
+                "exterior": [
+                    [
+                        365,
+                        714
+                    ],
+                    [
+                        531,
+                        530
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

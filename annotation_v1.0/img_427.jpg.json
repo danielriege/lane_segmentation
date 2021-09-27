@@ -1,0 +1,94 @@
+{
+    "description": "",
+    "tags": [],
+    "size": {
+        "height": 717,
+        "width": 1001
+    },
+    "objects": [
+        {
+            "id": 687486652,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-22T07:13:37.888Z",
+            "updatedAt": "2021-04-27T09:55:44.249Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        501,
+                        715
+                    ],
+                    [
+                        389,
+                        566
+                    ],
+                    [
+                        328,
+                        518
+                    ],
+                    [
+                        245,
+                        479
+                    ],
+                    [
+                        166,
+                        462
+                    ],
+                    [
+                        72,
+                        452
+                    ],
+                    [
+                        3,
+                        449
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 699237828,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-04-27T09:55:44.178Z",
+            "updatedAt": "2021-04-27T09:55:47.701Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        33,
+                        711
+                    ],
+                    [
+                        81,
+                        602
+                    ],
+                    [
+                        99,
+                        541
+                    ],
+                    [
+                        92,
+                        516
+                    ],
+                    [
+                        57,
+                        492
+                    ],
+                    [
+                        13,
+                        480
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
+}

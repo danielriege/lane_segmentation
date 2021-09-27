@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-#!export SM_FRAMEWORK=tf.keras
 
 import sys
 import os
+os.system('export SM_FRAMEWORK=tf.keras')
 import cv2
 import numpy as np
 import fnmatch
@@ -20,12 +20,14 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = "2"
 
 record = True
 
-number_classes = 5 # outer_l, outer_t, outer_r, middle_curb
+number_classes = 9 # outer_l, outer_t, outer_r, middle_curb
 x_values = 192
 y_values = 48
 
 input_width = 434
 input_height = 150
+
+size = (868, 300)
 
 model_dependencies = {
     'iou_score': sm.metrics.iou_score
@@ -41,13 +43,27 @@ def postprocess_channel(img):
     _, img = cv2.threshold(img,thres_value,1.0,cv2.THRESH_BINARY)
     return img
 
+def draw_frame(img, prediction):
+    test_img = img/255
+    test_img = test_img.astype(np.float32)
+    predicted_outer = np.sum([postprocess_channel(prediction[:,:,i]) for i in range(4)], axis=0)
+    predicted_middle = np.sum([postprocess_channel(prediction[:,:,i]) for i in range(4,6)], axis=0)
+    predicted_wait = np.sum([postprocess_channel(prediction[:,:,i]) for i in range(6,8)], axis=0)
+    predicted_lanes = cv2.merge([predicted_outer, predicted_wait, predicted_middle])
+    predicted_lanes = cv2.resize(predicted_lanes, (input_width, input_height))
+    overlay_image = cv2.addWeighted(test_img, 0.4, predicted_lanes, 0.6, 0)
+    overlay_image = cv2.resize(overlay_image, size)
+    overlay_image = cv2.cvtColor(overlay_image, cv2.COLOR_BGR2RGB)
+    overlay_image = overlay_image*255
+    overlay_image = np.uint8(overlay_image)
+    return overlay_image
+
 def main_images(model, input_path, output_path):
     file_list = os.listdir(input_path)
     file_list.sort()
     pattern = '*.jpg'
     try:
         running = True
-        size = (868, 300)
         if record:
             out = cv2.VideoWriter(output_path,cv2.VideoWriter_fourcc(*'DIVX'), 15, size)
         while running: 
@@ -60,17 +76,7 @@ def main_images(model, input_path, output_path):
                     img = cv2.resize(img, (input_width, input_height))
                     
                     prediction = model.predict(np.array([img]))[0]
-
-                    test_img = img/255
-                    test_img = test_img.astype(np.float32)
-                    predicted_lanes = np.sum([postprocess_channel(prediction[:,:,i]) for i in range(number_classes-1)], axis=0)
-                    predicted_lanes = cv2.merge([predicted_lanes, np.zeros_like(predicted_lanes), np.zeros_like(predicted_lanes)])
-                    predicted_lanes = cv2.resize(predicted_lanes, (input_width, input_height))
-                    overlay_image = cv2.addWeighted(test_img, 0.4, predicted_lanes, 0.6, 0)
-                    overlay_image = cv2.resize(overlay_image, size)
-                    overlay_image = cv2.cvtColor(overlay_image, cv2.COLOR_BGR2RGB)
-                    overlay_image = overlay_image*255
-                    overlay_image = np.uint8(overlay_image)
+                    overlay_image = draw_frame(img, prediction)
                     cv2.imshow('frame', overlay_image)
                     if record:
                         out.write(overlay_image)
@@ -88,7 +94,6 @@ def main_images(model, input_path, output_path):
 def main_video(model, input_path, output_path):
     cap = cv2.VideoCapture(input_path)
     try:
-        size = (868, 300)
         if record:
             out = cv2.VideoWriter(output_path,cv2.VideoWriter_fourcc(*'DIVX'), 15, size)
         while cap.isOpened():
@@ -98,17 +103,7 @@ def main_video(model, input_path, output_path):
             img = cv2.resize(img, (input_width, input_height))
             
             prediction = model.predict(np.array([img]))[0]
-
-            test_img = img/255
-            test_img = test_img.astype(np.float32)
-            predicted_lanes = np.sum([postprocess_channel(prediction[:,:,i]) for i in range(number_classes-1)], axis=0)
-            predicted_lanes = cv2.merge([predicted_lanes, np.zeros_like(predicted_lanes), np.zeros_like(predicted_lanes)])
-            predicted_lanes = cv2.resize(predicted_lanes, (input_width, input_height))
-            overlay_image = cv2.addWeighted(test_img, 0.4, predicted_lanes, 0.6, 0)
-            overlay_image = cv2.resize(overlay_image, size)
-            overlay_image = cv2.cvtColor(overlay_image, cv2.COLOR_BGR2RGB)
-            overlay_image = overlay_image*255
-            overlay_image = np.uint8(overlay_image)
+            overlay_image = draw_frame(img, prediction)
             cv2.imshow('frame', overlay_image)
             if record:
                 out.write(overlay_image)
