@@ -41,11 +41,12 @@ class DataGenerator(Sequence):
         return img
             
     def data_generation(self, batch_input_img_path, batch_target_ann_path):
+        start_b = time.time()
         # X : (n_samples, *dim, n_channels)
         # Initialization
         X = np.zeros((self.batch_size,) + (int(self.input_img_size[0]/2), self.input_img_size[1]) + (3,), dtype="float32")
         y = np.zeros((self.batch_size,) + self.target_img_size + (self.n_channels,), dtype="float32")
-
+        
         # Generate data
         for j, img_path in enumerate(batch_input_img_path):
             use_augmentation = False
@@ -85,6 +86,7 @@ class DataGenerator(Sequence):
             X[j] = img
             y[j] = merged
         
+        print(f"whole batch took: {(time.time()-start_b)*1000}ms")
         return X, y
     
     def __len__(self):
