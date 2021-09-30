@@ -13,7 +13,7 @@ import albumentations as Alb
 import threading
 
 class GenerateThread(threading.Thread):
-    def __init__(self, j, img_path,batch_target_ann_path, X,y, transform, input_img_size, target_img_size):
+    def __init__(self, j, img_path,batch_target_ann_path, X,y, transform, input_img_size, target_img_size, lock):
         threading.Thread.__init__(self)
         self.j = j
         self.img_path = img_path
@@ -23,7 +23,7 @@ class GenerateThread(threading.Thread):
         self.transform = transform
         self.input_img_size = input_img_size
         self.target_img_size = target_img_size
-        self.lock = threading.Lock()
+        self.lock = lock
         
     def preprocess(self,img):
         height, _, _ = img.shape
@@ -76,6 +76,7 @@ class DataGenerator(Sequence):
         self.n_channels = n_channels
         self.transform = transform
         self.threads = []
+        self.lock = threading.Lock()
         
         self.on_epoch_end()
         
@@ -93,7 +94,7 @@ class DataGenerator(Sequence):
 
         # Generate data
         for j, img_path in enumerate(batch_input_img_path):
-            th = GenerateThread(j, img_path,batch_target_ann_path, X,y, self.transform, self.input_img_size, self.target_img_size)
+            th = GenerateThread(j, img_path,batch_target_ann_path, X,y, self.transform, self.input_img_size, self.target_img_size, self.lock)
             th.start()
             self.threads.append(th)
         #threads are working
