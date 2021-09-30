@@ -10,6 +10,61 @@ import os
 import fnmatch
 import albumentations as Alb
 
+import threading
+
+class GenerateThread(threading.Thread):
+    def __init__(self, j, img_path,batch_target_ann_path, X,y, transform, input_img_size, target_img_size, lock):
+        threading.Thread.__init__(self)
+        self.j = j
+        self.img_path = img_path
+        self.X = X
+        self.y = y
+        self.batch_target_ann_path = batch_target_ann_path
+        self.transform = transform
+        self.input_img_size = input_img_size
+        self.target_img_size = target_img_size
+        self.lock = lock
+        
+    def preprocess(self,img):
+        height, _, _ = img.shape
+        img = img[int(height/2):,:,:]
+        img = img.astype(np.float32)/255.0
+        return img
+        
+    def preprocess_gray(self,img):
+        height, _ = img.shape
+        img = img[int(height/2):,:]
+        return img
+    
+    def run(self):
+        use_augmentation = False
+        if fnmatch.fnmatch(self.img_path, "*.aug"):
+            use_augmentation = True
+            self.img_path = os.path.splitext(self.img_path)[0]
+        # get sample
+        img = cv2.imread(self.img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        # get annotation
+        ann_path = self.batch_target_ann_path[self.j]
+        lanes = svp.getPoints(ann_path)
+        # draws masks into multi channel array from labled points
+        segmented_data = svp.drawLanes(self.input_img_size, lanes)
+        # apply augmentation to both images when used
+        if use_augmentation and self.transform is not None:
+            transformed = self.transform(image=img, masks=segmented_data)
+            img = transformed['image']
+            segmented_data = np.array(transformed['masks'])
+        # after optional augmentation, preprocess both images to desired sizes and crops
+        # merge grayscale masks into multi channel image and preprocess data
+        merged = cv2.merge([cv2.resize(self.preprocess_gray(segmented), (self.target_img_size[1],self.target_img_size[0])) for segmented in segmented_data])
+
+        img = self.preprocess(img)
+
+        self.lock.acquire()
+        self.X[self.j] = img
+        self.y[self.j] = merged
+        self.lock.release()
+
 class DataGenerator(Sequence):
     def __init__(self, input_img_paths, target_ann_paths, batch_size=32, input_img_size=(640,480), target_img_size=(640,224), shuffle=True, n_channels=9, transform=None):
         self.batch_size = batch_size
@@ -20,6 +75,8 @@ class DataGenerator(Sequence):
         self.shuffle = shuffle
         self.n_channels = n_channels
         self.transform = transform
+        self.threads = []
+        self.lock = threading.Lock()
         
         self.on_epoch_end()
         
@@ -27,17 +84,6 @@ class DataGenerator(Sequence):
         self.indexes = np.arange(len(self.input_img_paths))
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
-            
-    def preprocess(self,img):
-        height, _, _ = img.shape
-        img = img[int(height/2):,:,:]
-        img = img.astype(np.float32)/255.0
-        return img
-
-    def preprocess_gray(self,img):
-        height, _ = img.shape
-        img = img[int(height/2):,:]
-        return img
             
     def data_generation(self, batch_input_img_path, batch_target_ann_path):
         # X : (n_samples, *dim, n_channels)
@@ -48,31 +94,12 @@ class DataGenerator(Sequence):
 
         # Generate data
         for j, img_path in enumerate(batch_input_img_path):
-            if fnmatch.fnmatch(img_path, "*.aug"):
-                use_augmentation = True
-                img_path = os.path.splitext(img_path)[0]
-            # get sample
-            img = cv2.imread(img_path)
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            # get annotation
-            ann_path = batch_target_ann_path[j]
-            lanes = svp.getPoints(ann_path)
-            # draws masks into multi channel array from labled points
-            segmented_data = svp.drawLanes(self.input_img_size, lanes)
-            # apply augmentation to both images when used
-            if use_augmentation and self.transform is not None:
-                transformed = self.transform(image=img, masks=segmented_data)
-                img = transformed['image']
-                segmented_data = np.array(transformed['masks'])
-            # after optional augmentation, preprocess both images to desired sizes and crops
-            # merge grayscale masks into multi channel image and preprocess data
-            merged = cv2.merge([cv2.resize(self.preprocess_gray(segmented), (self.target_img_size[1],self.target_img_size[0])) for segmented in segmented_data])
-            
-            img = self.preprocess(img)
-            
-            X[j] = img
-            y[j] = merged
-
+            th = GenerateThread(j, img_path,batch_target_ann_path, X,y, self.transform, self.input_img_size, self.target_img_size, self.lock)
+            th.start()
+            self.threads.append(th)
+        #threads are working
+        for t in self.threads:
+            t.join()
         return X, y
     
     def __len__(self):
