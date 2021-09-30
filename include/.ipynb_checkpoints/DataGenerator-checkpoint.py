@@ -9,6 +9,7 @@ import cv2
 import os
 import fnmatch
 import albumentations as Alb
+import time
 
 class DataGenerator(Sequence):
     def __init__(self, input_img_paths, target_ann_paths, batch_size=32, input_img_size=(640,480), target_img_size=(640,224), shuffle=True, n_channels=9, transform=None):
@@ -52,10 +53,19 @@ class DataGenerator(Sequence):
                 use_augmentation = True
                 img_path = os.path.splitext(img_path)[0]
             # get sample
+            
+            start_r = time.time()
+            
             img = cv2.imread(img_path)
+            
+            print(f"image read took: {(time.time()-start_r)*1000}ms")
+            
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             # get annotation
             ann_path = batch_target_ann_path[j]
+            
+            start = time.time()
+            
             lanes = svp.getPoints(ann_path)
             # draws masks into multi channel array from labled points
             segmented_data = svp.drawLanes(self.input_img_size, lanes)
@@ -68,6 +78,8 @@ class DataGenerator(Sequence):
             # merge grayscale masks into multi channel image and preprocess data
             merged = cv2.merge([cv2.resize(self.preprocess_gray(segmented), (self.target_img_size[1],self.target_img_size[0])) for segmented in segmented_data])
 
+            print(f"rendering took: {(time.time()-start)*1000}ms")
+            
             img = self.preprocess(img)
 
             X[j] = img
