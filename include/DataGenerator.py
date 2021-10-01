@@ -12,7 +12,7 @@ import albumentations as Alb
 import time
 
 class DataGenerator(Sequence):
-    def __init__(self, input_img_paths, target_ann_paths, batch_size=32, input_img_size=(640,480), target_img_size=(640,224), shuffle=True, n_channels=9, transform=None):
+    def __init__(self, input_img_paths, target_ann_paths, batch_size=32, input_img_size=(640,480), target_img_size=(640,224), shuffle=True, n_channels=9, transform=None, augmentation=False):
         self.batch_size = batch_size
         self.target_ann_paths = target_ann_paths
         self.input_img_paths = input_img_paths
@@ -21,6 +21,7 @@ class DataGenerator(Sequence):
         self.shuffle = shuffle
         self.n_channels = n_channels
         self.transform = transform
+        self.augmentation = augmentation
 
         self.on_epoch_end()
         
@@ -31,62 +32,53 @@ class DataGenerator(Sequence):
             
     def preprocess(self,img):
         height, _, _ = img.shape
-        img = img[int(height/2):,:,:]
+        offset_y = int(self.input_img_size[0]/2)-self.target_img_size[0]
+        img = img[int(height/2)+offset_y:,:,:]
         img = img.astype(np.float32)/255.0
         return img
         
     def preprocess_gray(self,img):
         height, _ = img.shape
-        img = img[int(height/2):,:]
+        offset_y = int(self.input_img_size[0]/2)-self.target_img_size[0]
+        img = img[int(height/2)+offset_y:,:]
         return img
+    
+    def decode_mask(self,mask):
+        masks = np.zeros(self.target_img_size + (self.n_channels,), dtype="float32")
+        for channel_i in range(1,self.n_channels):
+            channel_mask = np.where(mask == channel_i*20, 1.0, 0.0)
+            masks[:,:,channel_i-1] = channel_mask
+        # background channel
+        masks[:,:,self.n_channels-1] = np.where(mask == 0, 1.0,0.0)
+        return masks
             
     def data_generation(self, batch_input_img_path, batch_target_ann_path):
         start_b = time.time()
         # X : (n_samples, *dim, n_channels)
         # Initialization
-        X = np.zeros((self.batch_size,) + (int(self.input_img_size[0]/2), self.input_img_size[1]) + (3,), dtype="float32")
+        X = np.zeros((self.batch_size,) + self.target_img_size + (3,), dtype="float32")
         y = np.zeros((self.batch_size,) + self.target_img_size + (self.n_channels,), dtype="float32")
         
         # Generate data
         for j, img_path in enumerate(batch_input_img_path):
-            use_augmentation = False
-            if fnmatch.fnmatch(img_path, "*.aug"):
-                use_augmentation = True
-                img_path = os.path.splitext(img_path)[0]
-            # get sample
-            
-            start_r = time.time()
-            
             img = cv2.imread(img_path)
-            
-            print(f"image read took: {(time.time()-start_r)*1000}ms")
-            
+            mask = cv2.imread(batch_target_ann_path[j])
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            # get annotation
-            ann_path = batch_target_ann_path[j]
+            mask =cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
             
-            start = time.time()
-            
-            lanes = svp.getPoints(ann_path)
-            # draws masks into multi channel array from labled points
-            segmented_data = svp.drawLanes(self.input_img_size, lanes)
-            # apply augmentation to both images when used
-            if use_augmentation and self.transform is not None:
-                transformed = self.transform(image=img, masks=segmented_data)
+            if self.augmentation and self.transform is not None:
+                transformed = self.transform(image=img, masks=mask)
                 img = transformed['image']
-                segmented_data = np.array(transformed['masks'])
-            # after optional augmentation, preprocess both images to desired sizes and crops
-            # merge grayscale masks into multi channel image and preprocess data
-            merged = cv2.merge([cv2.resize(self.preprocess_gray(segmented), (self.target_img_size[1],self.target_img_size[0])) for segmented in segmented_data])
-
-            print(f"rendering took: {(time.time()-start)*1000}ms")
+                mask = transformed['masks']
             
             img = self.preprocess(img)
+            mask = self.preprocess_gray(mask)
+            masks = self.decode_mask(mask)
 
             X[j] = img
-            y[j] = merged
+            y[j] = masks
         
-        print(f"whole batch took: {(time.time()-start_b)*1000}ms")
+        # print(f"whole batch took: {(time.time()-start_b)*1000}ms")
         return X, y
     
     def __len__(self):

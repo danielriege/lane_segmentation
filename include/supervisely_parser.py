@@ -33,7 +33,7 @@ def drawDebugImage(img, lanes):
     return img
 
 def drawLanes(size, lanes):
-    data = [np.zeros(size) for i in range(6)]
+    data = [np.zeros(size, dtype=np.int32) for i in range(6)]
     for class_title in lanes:
         if "outer_l" in class_title:
             i = 0
@@ -54,18 +54,23 @@ def drawLanes(size, lanes):
         else:
             return None
         pts = np.asarray(lanes[class_title], np.int32)
-        if "area" in class_title:
-            data[i] = cv2.fillPoly(data[i], [pts], 1.0)
+        if "area" in class_title or "zebra" in class_title:
+            data[i] = cv2.fillPoly(data[i], [pts], 1)
         else:
             thick = 1
             if "hold" in class_title:
-                thick = 4
-            data[i] = cv2.polylines(data[i], [pts], False, 1.0,thick)
-    background = cv2.absdiff(np.ones(size), data[0])
-    background = cv2.absdiff(background, data[1])
-    background = cv2.absdiff(background, data[2])
-    background = cv2.absdiff(background, data[3])
-    background = cv2.absdiff(background, data[4])
-    background = cv2.absdiff(background, data[5])
-    data.append(background)
+                thick = 3
+            data[i] = cv2.polylines(data[i], [pts], False, 1,thick)
+    # make sure we are only occuping free pixels
+    for index in range(1,len(data)-1):
+        data[index] = np.bitwise_and(np.invert(data[index-1]), data[index])
+    # background = cv2.absdiff(np.ones(size, dtype=np.int32), data[0])
+    # background = cv2.absdiff(background, data[1])
+    # background = cv2.absdiff(background, data[2])
+    # background = cv2.absdiff(background, data[3])
+    # background = cv2.absdiff(background, data[4])
+    # background = cv2.absdiff(background, data[5])
+    # data.append(background)
+
+    
     return data
