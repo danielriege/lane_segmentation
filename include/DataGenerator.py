@@ -10,6 +10,7 @@ import os
 import fnmatch
 import albumentations as Alb
 import time
+        
 
 class DataGenerator(Sequence):
     def __init__(self, input_img_paths, target_ann_paths, batch_size=32, input_img_size=(640,480), target_img_size=(640,224), shuffle=True, n_channels=9, transform=None, augmentation=False):
@@ -67,9 +68,9 @@ class DataGenerator(Sequence):
             mask =cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
             
             if self.augmentation and self.transform is not None:
-                transformed = self.transform(image=img, masks=mask)
+                transformed = self.transform(image=img, mask=mask)
                 img = transformed['image']
-                mask = transformed['masks']
+                mask = transformed['mask']
             
             img = self.preprocess(img)
             mask = self.preprocess_gray(mask)
@@ -78,7 +79,7 @@ class DataGenerator(Sequence):
             X[j] = img
             y[j] = masks
         
-        # print(f"whole batch took: {(time.time()-start_b)*1000}ms")
+        print(f"whole batch took: {(time.time()-start_b)*1000}ms")
         return X, y
     
     def __len__(self):

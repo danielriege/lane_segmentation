@@ -61,9 +61,6 @@ def drawLanes(size, lanes):
             if "hold" in class_title:
                 thick = 3
             data[i] = cv2.polylines(data[i], [pts], False, 1,thick)
-    # make sure we are only occuping free pixels
-    for index in range(1,len(data)-1):
-        data[index] = np.bitwise_and(np.invert(data[index-1]), data[index])
     # background = cv2.absdiff(np.ones(size, dtype=np.int32), data[0])
     # background = cv2.absdiff(background, data[1])
     # background = cv2.absdiff(background, data[2])

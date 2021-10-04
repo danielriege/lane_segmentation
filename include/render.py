@@ -32,8 +32,10 @@ def render_packages(packages, ann_base, mask_size):
                 # encode masks into 1 channel image
                 grayscale_img = np.zeros(mask_size)
                 for channel in range(masks.shape[2]):
+                    occupied_mask = np.where(grayscale_img > 0, 0, 1) # all free pixels are 1
                     mask = masks[:,:,channel]
-                    grayscale_img += (channel+1)*20*mask
+                    collision_free_mask = np.bitwise_and(occupied_mask, mask)
+                    grayscale_img += (channel+1)*20*collision_free_mask
                 out_path = os.path.join(masks_base_path, filename)
                 size = len(out_path)
                 out_path = out_path[:size-9]
