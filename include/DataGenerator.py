@@ -4,7 +4,6 @@ import numpy as np
 #from tensorflow.python.keras.utils.data_utils import Sequence
 from tensorflow.keras.utils import Sequence
 import supervisely_parser as svp
-import grid_parser as gp
 import cv2
 import os
 import fnmatch
@@ -79,7 +78,7 @@ class DataGenerator(Sequence):
             X[j] = img
             y[j] = masks
         
-        print(f"whole batch took: {(time.time()-start_b)*1000}ms")
+        #print(f"whole batch took: {(time.time()-start_b)*1000}ms")
         return X, y
     
     def __len__(self):

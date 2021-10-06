@@ -1,9 +1,30 @@
 import numpy as np
 import supervisely_parser as svp
-import grid_parser as gp
 import cv2
 import os
 import fnmatch
+
+rgb_lookup = [
+    [0xFF,0x01,0x01], # outer
+    [0xFF,0x9F,0x01], # middle
+    [0x33,0x5F,0x01], # guide
+    [0xFF,0xEB,0x01], # solid
+    [0x01,0x24,0xFF], # hold
+    [0x66,0xAC,0xFF] # zebra
+]
+
+def render_rgb(masks):
+    mask_shape = masks.shape[:2]
+    rgb_img = np.zeros(mask_shape + (3,), dtype=int)
+    number_masks = masks.shape[2]-1
+    for i in range(number_masks):
+        mask = masks[:,:,i]
+        for channel in range(3): # rgb channels
+            rgb_img[:,:,channel] += mask * rgb_lookup[i][channel]
+            
+    # make background white
+    rgb_img = np.where(rgb_img == 0, 255, rgb_img)
+    return rgb_img
 
 def render_masks(ann_path, mask_size):
     # get annotation

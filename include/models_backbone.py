@@ -11,10 +11,8 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 import tensorflow.keras.applications as A
 
-import segmentation_models as sm # for simple segmentation architecture
 
-
-def reference(name, input_height, input_width, number_classes):
+def reference(name, input_height, input_width, number_classes, metrics = None):
    # base_model = A.ResNet50V2(include_top=False, weights="imagenet", input_shape=(input_height,input_width,3)) 
     #base_model = A.InceptionV3(include_top=False, weights="imagenet", input_shape=(input_height,input_width,3)) 
     base_model = A.VGG16(include_top=False, weights="imagenet", input_shape=(input_height,input_width,3))
@@ -47,8 +45,7 @@ def reference(name, input_height, input_width, number_classes):
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
     optimizer = Adam(lr=0.01) # lr is learning rate
-    loss = sm.losses.CategoricalCELoss() + sm.losses.DiceLoss()
-    model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=[sm.metrics.iou_score]) # mean squared error because it is a regression problem
+    model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
 def test_custom(name):
