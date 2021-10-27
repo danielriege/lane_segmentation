@@ -57,9 +57,9 @@ def drawLanes(size, lanes):
         if "area" in class_title or "zebra" in class_title:
             data[i] = cv2.fillPoly(data[i], [pts], 1)
         else:
-            thick = 1
+            thick = 3
             if "hold" in class_title:
-                thick = 3
+                thick = 4
             data[i] = cv2.polylines(data[i], [pts], False, 1,thick)
     # background = cv2.absdiff(np.ones(size, dtype=np.int32), data[0])
     # background = cv2.absdiff(background, data[1])
