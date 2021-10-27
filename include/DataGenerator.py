@@ -56,8 +56,9 @@ class DataGenerator(Sequence):
         start_b = time.time()
         # X : (n_samples, *dim, n_channels)
         # Initialization
-        X = np.zeros((self.batch_size,) + self.target_img_size + (3,), dtype="float32")
-        y = np.zeros((self.batch_size,) + self.target_img_size + (self.n_channels,), dtype="float32")
+        batch_size = len(batch_input_img_path)
+        X = np.zeros((batch_size,) + self.target_img_size + (3,), dtype="float32")
+        y = np.zeros((batch_size,) + self.target_img_size + (self.n_channels,), dtype="float32")
         
         # Generate data
         for j, img_path in enumerate(batch_input_img_path):
