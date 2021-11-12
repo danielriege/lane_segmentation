@@ -1,6 +1,6 @@
 from tensorflow.keras.callbacks import TensorBoard
 from tensorflow.keras.models import Sequential, load_model, Model
-from tensorflow.keras.layers import Dense, Dropout, Flatten, Conv2D, Input, MaxPooling2D, Concatenate, AveragePooling1D, Reshape, Activation, add, Conv2DTranspose, BatchNormalization, UpSampling2D, SeparableConv2D
+from tensorflow.keras.layers import Dense, Dropout, Flatten, Conv2D, Input, MaxPooling2D, Concatenate, AveragePooling1D, Reshape, Activation, add, Conv2DTranspose, BatchNormalization, UpSampling2D, SeparableConv2D, DepthwiseConv2D
 from tensorflow.keras.optimizers import Adam, SGD
 from tensorflow.keras.utils import plot_model, Sequence
 from tensorflow.keras.losses import CategoricalCrossentropy, Reduction, BinaryCrossentropy
@@ -72,16 +72,102 @@ def mobilenet(name, input_height, input_width, number_classes, metrics = None):
             x_skip = base_model.input
         else:
             x_skip = base_model.get_layer(skip_connection_names[-i]).output
+        
+        x = Conv2D(filters[-i], 3, strides=1, padding='same')(x)
         x = UpSampling2D(2, interpolation='bilinear')(x)
         x = Concatenate()([x, x_skip])
         
         x = Conv2D(filters[-i], 3, strides=1, padding="same")(x)
         x = BatchNormalization()(x)
         x = Activation("relu")(x)
+        x = Dropout(0.3)(x)
         
         x = Conv2D(filters[-i], 3, strides=1, padding="same")(x)
         x = BatchNormalization()(x)
         x = Activation("relu")(x)
+        x = Dropout(0.3)(x)
+        
+    x = Conv2D(number_classes, 1, padding="same")(x)
+    output = Activation("softmax")(x)
+    
+    model = Model(inputs=base_model.inputs, outputs=output, name=name)
+    optimizer = Adam(lr=3e-4) # lr is learning rate
+    model.compile(loss=loss.tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
+    #plot_model(model, to_file='%s.png' % (name))
+    return model
+
+'''
+Tiny 
+'''
+def tiny(name, input_height, input_width, number_classes, metrics = None):
+    base_model = A.MobileNetV2(include_top=False, weights="imagenet", input_shape=(input_height,input_width,3))
+    
+    skip_connection_names = ["input","block_1_expand_relu", "block_3_expand_relu", "block_6_expand_relu"]
+    encoder_output = base_model.get_layer("block_13_expand_relu").output
+    
+    filters = [16, 32, 48, 64]
+    x = encoder_output
+    for i in range(1, len(skip_connection_names)+1, 1):
+        if skip_connection_names[-i] == "input":
+            x_skip = base_model.input
+        else:
+            x_skip = base_model.get_layer(skip_connection_names[-i]).output
+        
+        x = UpSampling2D(2, interpolation='bilinear')(x)
+        x = Concatenate()([x, x_skip])
+        
+        x = DepthwiseConv2D(3, padding="same")(x)
+        x = Conv2D(filters[-i], 1, padding="same")(x)
+        x = BatchNormalization()(x)
+        x = Activation("relu")(x)
+        x = Dropout(0.3)(x)
+        
+        x = DepthwiseConv2D(3, padding="same")(x)
+        x = Conv2D(filters[-i], 1, padding="same")(x)
+        x = BatchNormalization()(x)
+        x = Activation("relu")(x)
+        x = Dropout(0.3)(x)
+        
+    x = Conv2D(number_classes, 1, padding="same")(x)
+    output = Activation("softmax")(x)
+    
+    model = Model(inputs=base_model.inputs, outputs=output, name=name)
+    optimizer = Adam(lr=3e-4) # lr is learning rate
+    model.compile(loss=loss.tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
+    #plot_model(model, to_file='%s.png' % (name))
+    return model
+
+'''
+Tiny v2
+'''
+def tinyv2(name, input_height, input_width, number_classes, metrics = None):
+    base_model = A.MobileNetV2(include_top=False, weights="imagenet", input_shape=(input_height,input_width,3))
+    
+    skip_connection_names = ["input","block_1_expand_relu", "block_3_expand_relu", "block_6_expand_relu"]
+    encoder_output = base_model.get_layer("block_11_expand_relu").output
+    
+    filters = [16, 32, 48, 64]
+    x = encoder_output
+    for i in range(1, len(skip_connection_names)+1, 1):
+        if skip_connection_names[-i] == "input":
+            x_skip = base_model.input
+        else:
+            x_skip = base_model.get_layer(skip_connection_names[-i]).output
+        
+        x = UpSampling2D(2, interpolation='bilinear')(x)
+        x = Concatenate()([x, x_skip])
+        
+        x = DepthwiseConv2D(3, padding="same")(x)
+        x = Conv2D(filters[-i], 1, padding="same")(x)
+        x = BatchNormalization()(x)
+        x = Activation("relu")(x)
+        x = Dropout(0.4)(x)
+        
+        x = DepthwiseConv2D(3, padding="same")(x)
+        x = Conv2D(filters[-i], 1, padding="same")(x)
+        x = BatchNormalization()(x)
+        x = Activation("relu")(x)
+        x = Dropout(0.4)(x)
         
     x = Conv2D(number_classes, 1, padding="same")(x)
     output = Activation("softmax")(x)

@@ -6,7 +6,7 @@ import tensorflow as tf
 ## Basic
 def remove_background(tensor):
     # TODO: remove magic numbers
-    return tf.slice(tensor, [0,0,0,0], [16, 224, 640, 6]) # remove last C
+    return tf.slice(tensor, [0,0,0,0], [8, 224, 640, 6]) # remove last C
 
 def tp(y_true, y_pred):
     y_true = remove_background(y_true)
