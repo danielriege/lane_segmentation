@@ -4,13 +4,11 @@ Output: converted_model_edgetpu.tflite
 
 Operator                       Count      Status
 
-CONV_2D                        33         Mapped to Edge TPU
-CONV_2D                        3          More than one subgraph is not supported
-SOFTMAX                        1          More than one subgraph is not supported
-ADD                            8          Mapped to Edge TPU
+SOFTMAX                        1          Mapped to Edge TPU
+CONCATENATION                  4          Mapped to Edge TPU
 PAD                            3          Mapped to Edge TPU
-CONCATENATION                  1          More than one subgraph is not supported
-CONCATENATION                  3          Mapped to Edge TPU
+ADD                            8          Mapped to Edge TPU
+RESIZE_BILINEAR                4          Mapped to Edge TPU
+CONV_2D                        40         Mapped to Edge TPU
+QUANTIZE                       2          Mapped to Edge TPU
 DEPTHWISE_CONV_2D              13         Mapped to Edge TPU
-RESIZE_BILINEAR                3          Mapped to Edge TPU
-RESIZE_BILINEAR                1          Operation is otherwise supported, but not mapped due to some unspecified limitation
