@@ -41,9 +41,11 @@ def vgg(name, input_height, input_width, number_classes, metrics = None):
         x = Concatenate()([blocks[i], x])
 
         x = Conv2D(f, 3, strides=1, padding='same')(x)
+        x = BatchNormalization()(x)
         x = Activation("relu")(x)
         x = Dropout(0.3)(x)
         x = Conv2D(f, 3, strides=1, padding='same')(x)
+        x = BatchNormalization()(x)
         x = Activation("relu")(x)
         x = Dropout(0.3)(x)
     
@@ -51,7 +53,7 @@ def vgg(name, input_height, input_width, number_classes, metrics = None):
     output = Activation('softmax')(output)
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
-    optimizer = Adam(lr=3e-4) # lr is learning rate
+    optimizer = Adam(lr=1e-3) # lr is learning rate 3e-4
     model.compile(loss=loss.tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
@@ -92,6 +94,7 @@ def mobilenet(name, input_height, input_width, number_classes, metrics = None):
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
     optimizer = Adam(lr=3e-4) # lr is learning rate
+    # tversky = 7e-4
     model.compile(loss=loss.tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
@@ -133,7 +136,7 @@ def tiny(name, input_height, input_width, number_classes, metrics = None):
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
     optimizer = Adam(lr=3e-4) # lr is learning rate
-    model.compile(loss=loss.tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
+    model.compile(loss=loss.focal_tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
 
