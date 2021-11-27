@@ -2,6 +2,21 @@ from keras import backend as K
 import tensorflow as tf
 import numpy as np
 
+def dice(y_true, y_pred, smooth=1e-5):
+    # make y_true per class
+    y_true = K.permute_dimensions(y_true, (3,1,2,0))
+    y_pred = K.permute_dimensions(y_pred, (3,1,2,0))
+
+    # flatten per class
+    y_true_pos = K.batch_flatten(y_true)
+    y_pred_pos = K.batch_flatten(y_pred)
+    
+    intersection = K.sum(y_true_pos * y_pred_pos, 1)
+    return (2 * intersection + smooth) / (K.sum(y_true_pos,1) +  K.sum(y_pred_pos,1) + smooth)
+
+def dice_loss(y_true, y_pred):
+    return K.sum(1 - dice(y_true, y_pred))
+
 def tversky(y_true, y_pred, smooth=1e-5, alpha=0.6):
 
     # make y_true per class
