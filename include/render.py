@@ -24,7 +24,7 @@ def render_rgb(masks):
             rgb_img[:,:,channel] += mask * rgb_lookup[i][channel]
             
     # make background white
-    rgb_img = np.where(rgb_img == 0, 255, rgb_img)
+    #rgb_img = np.where(rgb_img == 0, 255, rgb_img)
     return rgb_img
 
 def render_masks(ann_path, mask_size):

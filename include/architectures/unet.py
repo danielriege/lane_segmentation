@@ -136,7 +136,7 @@ def tiny(name, input_height, input_width, number_classes, metrics = None):
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
     optimizer = Adam(lr=3e-4) # lr is learning rate
-    model.compile(loss=loss.focal_tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
+    model.compile(loss=loss.dice_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
 

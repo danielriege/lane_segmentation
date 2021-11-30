@@ -37,7 +37,7 @@ def tversky_loss(y_true, y_pred):
     return K.sum(1 - tversky(y_true, y_pred))
 
 
-def focal_tversky_loss(y_true, y_pred, gamma=0.75):
+def focal_tversky_loss(y_true, y_pred, gamma=1.25):
     tv = tversky(y_true, y_pred)
     return K.sum(K.pow((1 - tv), gamma))
 
