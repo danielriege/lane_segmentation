@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tensorflow-gpu = "==2.6.2"
+opencv-python = "*"
+jupyterlab = "*"
+numpy = "*"
+coremltools = "*"
+albumentations = "*"
+matplotlib = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

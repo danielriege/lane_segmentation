@@ -93,9 +93,9 @@ def mobilenet(name, input_height, input_width, number_classes, metrics = None):
     output = Activation("softmax")(x)
     
     model = Model(inputs=base_model.inputs, outputs=output, name=name)
-    optimizer = Adam(lr=9e-4) # lr is learning rate
+    optimizer = Adam(lr=3e-4) # lr is learning rate
     # tversky = 7e-4
-    model.compile(loss=loss.weighted_ce, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
+    model.compile(loss=loss.focal_tversky_loss, optimizer=optimizer, metrics=metrics) # mean squared error because it is a regression problem
     #plot_model(model, to_file='%s.png' % (name))
     return model
 

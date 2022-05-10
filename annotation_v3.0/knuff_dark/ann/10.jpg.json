@@ -5,5 +5,150 @@
         "height": 480,
         "width": 640
     },
-    "objects": []
+    "objects": [
+        {
+            "id": 842261694,
+            "classId": 2876689,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-12-06T14:22:08.563Z",
+            "updatedAt": "2021-12-06T14:22:56.860Z",
+            "tags": [],
+            "classTitle": "outer_r",
+            "points": {
+                "exterior": [
+                    [
+                        565,
+                        480
+                    ],
+                    [
+                        456,
+                        365
+                    ],
+                    [
+                        392,
+                        296
+                    ],
+                    [
+                        360,
+                        264
+                    ],
+                    [
+                        336,
+                        244
+                    ],
+                    [
+                        316,
+                        231
+                    ],
+                    [
+                        296,
+                        225
+                    ],
+                    [
+                        267,
+                        219
+                    ],
+                    [
+                        237,
+                        214
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 842261739,
+            "classId": 2907083,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-12-06T14:22:45.003Z",
+            "updatedAt": "2021-12-06T14:22:56.860Z",
+            "tags": [],
+            "classTitle": "solid_lane",
+            "points": {
+                "exterior": [
+                    [
+                        1,
+                        409
+                    ],
+                    [
+                        97,
+                        333
+                    ],
+                    [
+                        161,
+                        287
+                    ],
+                    [
+                        209,
+                        253
+                    ],
+                    [
+                        224,
+                        238
+                    ],
+                    [
+                        225,
+                        230
+                    ],
+                    [
+                        222,
+                        226
+                    ],
+                    [
+                        216,
+                        223
+                    ]
+                ],
+                "interior": []
+            }
+        },
+        {
+            "id": 842261758,
+            "classId": 2907069,
+            "description": "",
+            "geometryType": "line",
+            "labelerLogin": "danielriege",
+            "createdAt": "2021-12-06T14:22:56.813Z",
+            "updatedAt": "2021-12-06T14:23:00.688Z",
+            "tags": [],
+            "classTitle": "guide_lane",
+            "points": {
+                "exterior": [
+                    [
+                        225,
+                        477
+                    ],
+                    [
+                        264,
+                        314
+                    ],
+                    [
+                        279,
+                        264
+                    ],
+                    [
+                        282,
+                        254
+                    ],
+                    [
+                        278,
+                        244
+                    ],
+                    [
+                        272,
+                        235
+                    ],
+                    [
+                        262,
+                        227
+                    ]
+                ],
+                "interior": []
+            }
+        }
+    ]
 }

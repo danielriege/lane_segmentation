@@ -37,7 +37,7 @@ def tversky_loss(y_true, y_pred):
     return K.sum(1 - tversky(y_true, y_pred))
 
 
-def focal_tversky_loss(y_true, y_pred, gamma=1.25):
+def focal_tversky_loss(y_true, y_pred, gamma=0.75):
     tv = tversky(y_true, y_pred)
     return K.sum(K.pow((1 - tv), gamma))
 
@@ -53,6 +53,7 @@ def weighted_ce(y_true, y_pred):
     #we = K.constant(np.array([[48], [73], [149], [185], [1250], [1110], [1]])) 
     we = K.constant(np.array([[2.07], [1.36], [0.67], [0.54], [0.08], [0.09], [100]])) 
     we = 1 - (we / K.sum(we))
+    
     # outer, middle_curb, guide_lane, solid_lane, hold_line, zebra, background
     
     y_true = K.permute_dimensions(y_true, (3,1,2,0))
